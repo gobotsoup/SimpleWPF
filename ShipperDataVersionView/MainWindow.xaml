@@ -1,0 +1,17 @@
+﻿<Window x:Class="ShipperDataVersionView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:shipperDataVersionView="clr-namespace:ShipperDataVersionView"
+        Title="MainWindow" Height="486" Width="738">
+    <Window.Resources>
+        <shipperDataVersionView:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+    </Window.Resources>
+    <Grid>
+        <DataGrid Name="MyDataGrid" Height="300" Width="700" Margin="0,106,0,0" />
+        <ComboBox HorizontalAlignment="Left" Margin="15,34,0,0" VerticalAlignment="Top" Width="120" Name="ShipperComboBox"/>
+        <TextBlock
+       Visibility="{Binding SelectedItem, ElementName=ShipperComboBox, Converter={StaticResource NullToVisibilityConverter}}"
+       IsHitTestVisible="False"
+       Text="... Select Shipper ..." />
+    </Grid>
+</Window>
